@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Speech Test</title>
+</head>
+
+<body>
+
+<textarea placeholder = "Enter here" class = "textarea" rows = "10"></textarea>
+<button class = "convert_ja"> Convert to Speech [ja] </button>
+<button class = "convert_en"> Convert to Speech [en-US] </button>
+
+<script>
+let convert_ja = document.querySelector( ".convert_ja");
+let convert_en = document.querySelector( ".convert_en");
+let speech = new SpeechSynthesisUtterance();
+let textarea = document.querySelector( ".textarea");
+convert_ja.addEventListener(
+	"click",
+	() => {
+		speech.text = textarea.value;
+		speech.pitch = 1;
+		speech.volume = 1;
+		speech.lang = "jaJP";
+		speech.rate = 1;
+		speechSynthesis.speak( speech);
+	}
+)
+convert_en.addEventListener(
+	"click",
+	() => {
+		speech.text = textarea.value;
+		speech.pitch = 1;
+		speech.volume = 1;
+		speech.lang = "en-US";
+		speech.rate = 1;
+		speechSynthesis.speak( speech);
+	}
+)
+</script>
+
+</html>
