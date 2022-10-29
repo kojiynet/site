@@ -1,9 +1,21 @@
-<html><body><script>
-    WebAssembly.instantiateStreaming(
-      fetch( 'test01.wasm'), {})
-      .then(wasm => {
-        var add_func = wasm.instance.exports.add; // use the exported 'add' function
-        var result = add_func(10, 20);
-        console.log(result);
-      });
-</script></body></html>
+<html>
+<body>
+
+<div id = "msg"></div>
+
+<script>
+let msg_id = Document.getElementById( "msg");
+let result = NaN;
+WebAssembly.instantiateStreaming(
+  fetch( "test01.wasm"), {})
+    .then( wasm => {
+      let add_func = wasm.instance.exports.add;
+      result = add_func(10, 20);
+      console.log( result);
+    }
+);
+msg_id.innerText = result;
+</script>
+
+</body>
+</html>
