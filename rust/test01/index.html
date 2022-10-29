@@ -27,14 +27,27 @@ console.log( result);
 
 msg_id.innerText = result;
 
-while ( finished == false){}
+// sleep for <dur> millisec
+// use like "await sleep( 1000);" in "async" function
+function sleep( dur) {
+  return new Promise(
+    ( resolve) => {
+      setTimeout( resolve, dur);
+    } 
+  );
+}
 
-console.log( "after finished");
+await sleep( 1000);
 
-console.log( result);
+if ( finished == true){
 
-msg_id.innerText = result;
+  console.log( "after finished");
 
+  console.log( result);
+
+  msg_id.innerText = result;
+
+}
 
 </script>
 
