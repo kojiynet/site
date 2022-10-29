@@ -4,8 +4,9 @@
 <div id = "msg"></div>
 
 <script>
-let msg_id = Document.getElementById( "msg");
+let msg_id = document.getElementById( "msg");
 let result = NaN;
+msg_id.innerText = "not yet..";
 WebAssembly.instantiateStreaming(
   fetch( "test01.wasm"), {})
     .then( wasm => {
