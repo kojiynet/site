@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, WebAssembly! (ver. mul)</title>
+  <script>
+    const wasm = './wasm_test2.wasm'
+    fetch(wasm)
+      .then(response => response.arrayBuffer())
+      .then(bytes => WebAssembly.instantiate(bytes, {}))
+      .then(results => {
+        console.log(results.instance.exports.mul(5, 2))
+      })
+  </script>
+</head>
+
+</html>
+
