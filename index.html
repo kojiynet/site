@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Index</title>
-</head>
-
-<body>
-
-<a href = "wasm_test/index_wasm_test2.html"> WASM test </a>
-
-<br>
-
-<a href = "speech-synthesis.html"> Speech Synthesis </a>
-
-<br>
-
-<a href = "nabesan-omoshiro-code1.html"> 
-nabesan-omoshiro-code1
-</a>
-
-<br>
-
-<a href = "nabesan-omoshiro-code2.html"> 
-nabesan-omoshiro-code2
-</a>
-
-</body>
-
-</html>
+<html><body><script>
+    WebAssembly.instantiateStreaming(
+      fetch( 'test01.wasm'), {})
+      .then(wasm => {
+        var add_func = wasm.instance.exports.add; // use the exported 'add' function
+        var result = add_func(10, 20);
+        console.log(result);
+      });
+</script></body></html>
