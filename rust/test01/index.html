@@ -37,17 +37,23 @@ function sleep( dur) {
   );
 }
 
-await sleep( 1000);
+async function f(){
 
-if ( finished == true){
+  await sleep( 1000);
 
-  console.log( "after finished");
+  if ( finished == true){
 
-  console.log( result);
+    console.log( "after finished");
 
-  msg_id.innerText = result;
+    console.log( result);
+
+    msg_id.innerText = result;
+
+  }
 
 }
+
+f();
 
 </script>
 
