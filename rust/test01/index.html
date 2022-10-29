@@ -39,19 +39,17 @@ async function f()
 
   console.log( result);
 
-  msg_id.innerText = result;
+  msg_id.innerText = "Now computing...";
 
-  await sleep( 1000);
-
-  if ( finished == true){
-
-    console.log( "after finished");
-
-    console.log( result);
-
-    msg_id.innerText = result;
-
+  while( finished == false){
+    await sleep( 100);
   }
+
+  console.log( "after finished");
+
+  console.log( result);
+
+  msg_id.innerText = result;
 
 }
 
